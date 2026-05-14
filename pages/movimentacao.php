@@ -14,48 +14,52 @@
     ?>
     
     <div class="container-conteudo">
-        <div class="container-secao">
-            <div class="header-secao">
-                <span><i class="fa-solid fa-plus"></i></span>
-                <span>Movimentação</span>
-            </div>
-            <div class="secao">
-                <div class="secao-option">
-                    <a href="">
-                        <i class="fa-solid fa-arrow-down"></i>
-                        Entrada
-                    </a>
-                </div>
-                <div class="secao-option">
-                    <a href="">
-                        <i class="fa-solid fa-arrow-up"></i>
-                        Saida
-                    </a>
+        <div class="container-movimentacao">
+            <div class="header-movimentacao">
+                <div class="movimentacao-select">
+                    <div class="movimentacao-option">
+                        <a href="">
+                            <span><i class="fa-solid fa-arrow-down"></i></span>
+                            <span>Entrada</span>
+                        </a>
+                    </div>
+                    <div class="movimentacao-option">
+                        <a href="">
+                            <span><i class="fa-solid fa-arrow-up"></i></span>
+                            <span>Saida</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="formulario-movimentacao">
-                <form action="" method="">
-                    <div class="input-grupo">
-                        <div class="input">
-                            <input type="text" name="" placeholder="Produto">
+            <div class="main-movimentacao">
+                <div class="formulario-movimentacao">
+                    <form action="" method="">
+                        <div class="input-grupo">
+                            <div class="input">
+                            <input type="search" name="idprodutos" placeholder="Pesquisar Produto">
+                            </div>
+                            <div class="input">
+                                <input type="number" name="qtdMovimentacao" placeholder="Quantidade">
+                            </div>
                         </div>
-                        <div class="input">
-                            <input type="text" name="qtdMovimentacao" placeholder="Quantidade">
+                        <div class="input-grupo">
+                            <div class="input">
+                                <select name="" id="">
+                                    <option value="1">dasdasd</option>
+                                    <option value="2">2132312</option>
+                                </select>
+                            </div>
+                            <div class="input">
+                                <input type="datetime-local" name="horario" placeholder="Data e Horario">
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-grupo">
-                        <div class="input">
-                            <input type="text" name="motivo" placeholder="Produto">
+                        <div class="button-container">
+                            <div class="button-movimentacao">
+                                <button><i class="fa-solid fa-floppy-disk"></i>Salvar</button>
+                            </div>
                         </div>
-                        <div class="input">
-                            <input type="text" name="data" placeholder="Produto">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="button-adicionar">
-                        <button>Salvar</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

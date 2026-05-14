@@ -314,7 +314,7 @@ ul {
     background-color: var(--button-color-hover);
 }
 
-/* ===== INFORMAÇÕES (cards de resumo) ===== */
+/* ===== INFORMAÇÕES ===== */
 .container-informacoes {
     display: flex;
     justify-content: center;
@@ -386,6 +386,56 @@ ul {
     border-radius: 20px;
 }
 
+/* ===== MOVIMENTAÇÃO ===== */
+
+.container-movimentacao {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px 30px;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.header-movimentacao {
+    width: 100%;
+    height: 6vh;
+}
+
+.movimentacao-select {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.movimentacao-option {
+    background-color: var(--button-color);
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 15pt;
+    transition: var(--transition);
+}
+
+.movimentacao-option a {
+    text-decoration: none;
+    color: var(--button-text-color);
+}
+
+.movimentacao-option:hover {
+    background-color: var(--button-color-hover);
+}
+
+
 /* ===== PESQUISA ===== */
 .procurarProduto {
     display: flex;
@@ -422,62 +472,7 @@ ul {
     background-color: var(--button-color-hover);
 }
 
-/* ===== MOVIMENTAÇÃO ===== */
-.container-secao {
-    background-color: white;
-    width: 90%;
-    max-width: 1100px;
-    padding: 20px;
-    border-radius: 20px;
-}
 
-.header-secao {
-    margin: 10px 20px;
-    font-size: 20pt;
-}
-
-.header-secao i {
-    background-color: #007bff;
-    color: var(--button-text-color);
-    border-radius: 20px;
-    padding: 5px;
-    width: 40px;
-}
-
-.secao {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.secao-option {
-    background-color: #007bff;
-    width: 180px;
-    height: 40px;
-    margin: 10px 20px;
-    border-radius: 10px;
-    transition: var(--transition);
-}
-
-.secao-option a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--button-text-color);
-}
-
-.secao-option:hover {
-    background-color: var(--button-color-hover);
-}
-
-/* ===================================================
-   MEDIA QUERIES - RESPONSIVIDADE
-   =================================================== */
-
-/* Tablet (até 1024px) */
 @media (max-width: 1024px) {
     .container-conteudo {
         padding: 20px 15px;
@@ -498,25 +493,22 @@ ul {
     }
 }
 
-/* Tablet pequeno / Mobile grande (até 768px) */
+
 @media (max-width: 768px) {
-    /* Exibir botão hamburguer */
+
     .menu-toggle {
         display: block;
     }
 
-    /* Menu fica escondido à esquerda */
     .menu-lateral {
         transform: translateX(-100%);
         width: 260px;
     }
 
-    /* Menu aberto (classe adicionada via JS) */
     .menu-lateral.aberto {
         transform: translateX(0);
     }
 
-    /* Conteúdo ocupa a tela toda */
     .container-conteudo {
         margin-left: 0;
         padding: 70px 15px 20px;
@@ -599,7 +591,6 @@ ul {
     }
 }
 
-/* Mobile pequeno (até 480px) */
 @media (max-width: 480px) {
     .container-informacoes {
         flex-direction: column;
