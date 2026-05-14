@@ -24,6 +24,13 @@
     --informacoes-text-color: #21202082;
 }
 
+/* ===== LINHA ===== */
+.linha {
+    width: 100%;
+    border: solid 1px black;
+}
+
+
 /* ===== BACKGROUND ===== */
 .background {
     min-height: 100vh;
@@ -236,7 +243,7 @@ ul {
     display: flex;
     flex-direction: column;
     margin: 15px 20px;
-    width: 220px;
+    width: 350px;
     flex: 1 1 200px;
 }
 
@@ -250,22 +257,37 @@ ul {
     border-radius: 10px;
 }
 
-.button-adicionar {
+.input-select select{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    border: solid 2px #d0d0d0;
+    padding: 0 10px;
+    border-radius: 10px;
+}
+
+.button-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 20px;
+}
+
+.button-adicionar {
+    width: 100%;
+    max-width: 180px;
+    height: 5vh;
 }
 
 .button-adicionar button {
+    width: 100%;
+    height: 100%;
     border: none;
-    width: 300px;
-    height: 50px;
-    border-radius: 20px;
     background-color: var(--button-color);
     color: var(--button-text-color);
-    font-size: 18pt;
+    border-radius: 10px;
+    font-size: 19px;
     transition: var(--transition);
-    cursor: pointer;
 }
 
 .button-adicionar button:hover {
@@ -404,36 +426,35 @@ ul {
 .header-movimentacao {
     width: 100%;
     height: 6vh;
-}
-
-.movimentacao-select {
-    height: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.movimentacao-option {
-    background-color: var(--button-color);
-    padding: 10px;
-    width: 100%;
-    max-width: 200px;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
-    border-radius: 10px;
-    font-size: 15pt;
-    transition: var(--transition);
+    align-items: center;
 }
 
-.movimentacao-option a {
-    text-decoration: none;
-    color: var(--button-text-color);
+.header-text {
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #007bff;
 }
 
-.movimentacao-option:hover {
-    background-color: var(--button-color-hover);
+.plus-icon {
+    background-color: #1e60a1;
+    color: #ffffffff;
+    padding: 5px;
+    border-radius: 30px;
 }
+
+.main-movimentacao {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.tabela-movimentacao {
+    background-color: white;
+}
+
+
 
 
 /* ===== PESQUISA ===== */

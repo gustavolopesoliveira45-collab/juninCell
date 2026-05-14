@@ -16,51 +16,55 @@
     <div class="container-conteudo">
         <div class="container-movimentacao">
             <div class="header-movimentacao">
-                <div class="movimentacao-select">
-                    <div class="movimentacao-option">
-                        <a href="">
-                            <span><i class="fa-solid fa-arrow-down"></i></span>
-                            <span>Entrada</span>
-                        </a>
-                    </div>
-                    <div class="movimentacao-option">
-                        <a href="">
-                            <span><i class="fa-solid fa-arrow-up"></i></span>
-                            <span>Saida</span>
-                        </a>
-                    </div>
+                <div class="header-text">
+                    <span class="plus-icon"><i class="fa-solid fa-plus"></i></span>
+                    <span>Nova Movimentação</span>
                 </div>
+                <div class="linha"></div>
             </div>
             <div class="main-movimentacao">
                 <div class="formulario-movimentacao">
                     <form action="" method="">
-                        <div class="input-grupo">
-                            <div class="input">
-                            <input type="search" name="idprodutos" placeholder="Pesquisar Produto">
+                        <div class="input-container">
+                            <div class="input-grupo">
+                                <div class="input">
+                                    <label for="idprodutos">Pesquisar Produto</label>
+                                    <input type="search" name="idprodutos" id="idprodutos" placeholder="Ex: Capa iphone 13">
+                                </div>
+                                <div class="input">
+                                    <label for="idprodutos">Quantidade</label>
+                                    <input type="number" name="qtdMovimentacao" placeholder="Ex: 10 unidades">
+                                </div>
                             </div>
-                            <div class="input">
-                                <input type="number" name="qtdMovimentacao" placeholder="Quantidade">
+                            <div class="input-grupo">
+                                <div class="input">
+                                    <label for="idprodutos">Motivo</label>
+                                    <input type="text" name="motivo" placeholder="Ex: Adicionando Produto">
+                                </div>
+                                <div class="input">
+                                    <label for="idprodutos">Data e Hora</label>
+                                    <input type="datetime-local" name="horario">
+                                </div>
                             </div>
-                        </div>
-                        <div class="input-grupo">
-                            <div class="input">
-                                <select name="" id="">
-                                    <option value="1">dasdasd</option>
-                                    <option value="2">2132312</option>
-                                </select>
-                            </div>
-                            <div class="input">
-                                <input type="datetime-local" name="horario" placeholder="Data e Horario">
-                            </div>
+                            <div class="input-select">
+                                    <select name="tipo" id="tipo">
+                                        <option hidden>Selecione o Tipo</option>
+                                        <option value="entrada">Entrada</option>
+                                        <option value="saida">Saida</option>
+                                    </select>
+                                </div>
                         </div>
                         <div class="button-container">
-                            <div class="button-movimentacao">
+                            <div class="button-adicionar">
                                 <button><i class="fa-solid fa-floppy-disk"></i>Salvar</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="tabela-movimentacao">
+            
         </div>
     </div>
 
