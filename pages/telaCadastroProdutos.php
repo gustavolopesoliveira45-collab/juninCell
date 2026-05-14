@@ -52,10 +52,6 @@
                                 <label for="qtdProduto">Quantidade</label>
                                 <input type="number" id="qtdProduto" name="qtdProduto" placeholder="Ex: 25 Unidades">
                             </div>
-                            <div class="input">
-                                <label for="qtdProdutoMinimo">Quantidade Minima</label>
-                                <input type="number" id="qtdProdutoMinimo" name="qtdProdutoMinimo" placeholder="Ex: 5 unidades">
-                            </div>
                         </div>
                     </div>
                     <div class="button-adicionar">

@@ -35,7 +35,7 @@
             </div>
             <div class="formulario-movimentacao">
                 <form action="" method="">
-                    <div>
+                    <div class="input-grupo">
                         <div class="input">
                             <input type="text" name="" placeholder="Produto">
                         </div>
@@ -43,7 +43,7 @@
                             <input type="text" name="qtdMovimentacao" placeholder="Quantidade">
                         </div>
                     </div>
-                    <div>
+                    <div class="input-grupo">
                         <div class="input">
                             <input type="text" name="motivo" placeholder="Produto">
                         </div>

@@ -12,7 +12,16 @@
     <?php
         $paginaAtual = basename($_SERVER['PHP_SELF'])
     ?>
-  <nav class="menu-lateral">
+
+    <!-- Botão hamburguer (visível só no mobile) -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <!-- Overlay escuro ao abrir o menu no mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+  <nav class="menu-lateral" id="menuLateral">
     <ul>
         <li class="item-menu <?= ($paginaAtual == '../pages/index.php') ? 'ativo' : '' ?>">
             <a href="../pages/index.php">
@@ -50,5 +59,28 @@
         </li>
     </ul>
   </nav>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const menu   = document.getElementById('menuLateral');
+    const overlay = document.getElementById('menuOverlay');
+
+    function fecharMenu() {
+        menu.classList.remove('aberto');
+        overlay.classList.remove('ativo');
+    }
+
+    toggle.addEventListener('click', () => {
+        const aberto = menu.classList.toggle('aberto');
+        overlay.classList.toggle('ativo', aberto);
+    });
+
+    overlay.addEventListener('click', fecharMenu);
+
+    // Fechar ao clicar em um link do menu (mobile)
+    document.querySelectorAll('.item-menu a').forEach(link => {
+        link.addEventListener('click', fecharMenu);
+    });
+  </script>
 </body>
 </html>

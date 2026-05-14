@@ -3,24 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    
-}
-
-.background {
-    height: 100vh;
-    background-color: var(--background-color);
-}
-
-.container-conteudo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 307px;
-    height: 100vh;
 }
 
 :root {
+    --menu-width: 300px;
     --menu-link-color: #71a0ce;
     --menu-link-color-hover: #ffffffff;
     --text-color-option: #504c82;
@@ -38,22 +24,119 @@
     --informacoes-text-color: #21202082;
 }
 
-/*tabela*/
+/* ===== BACKGROUND ===== */
+.background {
+    min-height: 100vh;
+    background-color: var(--background-color);
+}
 
+/* ===== MENU LATERAL ===== */
+.menu-lateral {
+    width: var(--menu-width);
+    height: 100%;
+    background-color: var(--menu-color);
+    padding: 50px 0 20px;
+    box-shadow: 7px 0 0 var(--menu-link-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
+    background-color: var(--menu-color);
+    color: var(--menu-link-color);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+}
+
+
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.menu-overlay.ativo {
+    display: block;
+}
+
+ul {
+    margin-top: 40px;
+    height: 100%;
+    list-style: none;
+    align-self: start;
+}
+
+.item-menu a {
+    text-decoration: none;
+    color: var(--menu-link-color);
+    font-size: 22pt;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 40px;
+    margin-right: 10px;
+    transition: var(--transition);
+    border-radius: 20px;
+}
+
+.item-menu.ativo a {
+    background-color: var(--menu-link-color);
+    border-radius: 10px;
+    color: var(--menu-link-color-hover);
+    transition: var(--transition);
+}
+
+.link {
+    margin-left: 15px;
+}
+
+.item-menu a:hover {
+    background-color: var(--menu-link-color);
+    color: var(--menu-link-color-hover);
+}
+
+/* ===== CONTEÚDO PRINCIPAL ===== */
+.container-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--menu-width);
+    min-height: 100vh;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+/* ===== TABELA ===== */
 .tabela-container {
     background-color: #ffffffff;
-    width: 130vh;
+    width: 100%;
+    max-width: 1100px;
     height: auto;
     border-radius: 20px;
     margin-top: 30px;
-    padding: 30px 50px;
+    padding: 30px 30px;
     box-shadow: var(--box-shadow);
 }
 
 .lista-produtos {
-    margin: 0 30px;
+    margin: 0;
     max-height: 500px;
     overflow-y: auto;
+    overflow-x: auto;
     height: auto;
     border-radius: 20px;
 }
@@ -100,6 +183,7 @@
     color: #115705;
     padding: 10px 20px;
     border-radius: 15px;
+    white-space: nowrap;
 }
 
 .atencao {
@@ -107,6 +191,7 @@
     color: #cfb54d;
     padding: 10px 20px;
     border-radius: 15px;
+    white-space: nowrap;
 }
 
 .critico {
@@ -114,15 +199,16 @@
     color: #ff0000;
     padding: 10px 20px;
     border-radius: 15px;
+    white-space: nowrap;
 }
 
-/*cadastro*/
-
+/* ===== CADASTRO ===== */
 .container-cadastro {
     background-color: #ffffffff;
-    width: 100vh;
+    width: 100%;
+    max-width: 900px;
     height: auto;
-    padding: 30px 50px;
+    padding: 30px 40px;
     border-radius: 20px;
     box-shadow: var(--box-shadow);
 }
@@ -131,6 +217,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .formulario {
@@ -141,13 +229,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .input {
     display: flex;
     flex-direction: column;
-    margin: 25px 50px;
-    width: 250px;
+    margin: 15px 20px;
+    width: 220px;
+    flex: 1 1 200px;
 }
 
 .input input {
@@ -175,66 +265,21 @@
     color: var(--button-text-color);
     font-size: 18pt;
     transition: var(--transition);
+    cursor: pointer;
 }
 
 .button-adicionar button:hover {
     background-color: var(--button-color-hover);
 }
 
-/*menu*/
-
-.menu-lateral {
-    width: 300px;
-    height: 100%;
-    background-color: var(--menu-color);
-    padding: 50px 0 20px ;
-    box-shadow: 7px 0 0 var(--menu-link-color);
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: var(--transition);
-}
-
-ul {
-    margin-top: 40px;
-    height: 100%;
-    list-style: none;align-self: start;
-}
-
-.item-menu a {
-    text-decoration: none;
-    color: var(--menu-link-color);
-    font-size: 22pt;
-    padding: 20px 4%;
-    display: flex;
-    margin-bottom: 40px;
-    margin-right: 10px;
-    transition: var(--transition);
-    border-radius: 20px;
-}
-
-.item-menu.ativo a{
-    background-color: var(--menu-link-color);
-    border-radius: 10px;
-    color: var(--menu-link-color-hover);
-    transition: var(--transition);
-}
-
-.link {
-    margin-left: 15px;
-}
-
-.item-menu a:hover {
-    background-color: var(--menu-link-color);
-    color: var(--menu-link-color-hover);
-}
-
-/*produtos*/
-
+/* ===== PRODUTOS - HEADER ===== */
 .header-produtos {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 
 .produtos {
@@ -242,6 +287,7 @@ ul {
     color: var(--text-color-option);
     font-size: 25pt;
     cursor: default;
+    align-items: center;
 }
 
 .addProduto {
@@ -250,6 +296,7 @@ ul {
     width: 170px;
     height: 40px;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .addProduto a {
@@ -267,20 +314,26 @@ ul {
     background-color: var(--button-color-hover);
 }
 
+/* ===== INFORMAÇÕES (cards de resumo) ===== */
 .container-informacoes {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .box-informacoes {
     background-color: #ffffffff;
-    width: 330px;
+    width: 240px;
+    min-width: 200px;
+    flex: 1 1 200px;
     height: 120px;
     border-radius: 18px;
     box-shadow: var(--box-shadow);
     padding: 10px;
-    margin: 30px 30px;
 }
 
 .informacoes-text {
@@ -333,18 +386,25 @@ ul {
     border-radius: 20px;
 }
 
+/* ===== PESQUISA ===== */
 .procurarProduto {
     display: flex;
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 5px;
-    width: 240px;
+    min-width: 200px;
+}
+
+.procurarProduto form {
+    display: flex;
+    width: 100%;
 }
 
 .procurarProduto input {
     flex: 1;
     border: none;
     outline: none;
+    min-width: 0;
 }
 
 .procurarProduto button {
@@ -354,17 +414,19 @@ ul {
     border-radius: 4px;
     padding: 5px 10px;
     transition: var(--transition);
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .procurarProduto button:hover {
     background-color: var(--button-color-hover);
 }
 
-/*movimentaçao*/
-
+/* ===== MOVIMENTAÇÃO ===== */
 .container-secao {
     background-color: white;
     width: 90%;
+    max-width: 1100px;
     padding: 20px;
     border-radius: 20px;
 }
@@ -384,6 +446,8 @@ ul {
 
 .secao {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .secao-option {
@@ -407,4 +471,176 @@ ul {
 
 .secao-option:hover {
     background-color: var(--button-color-hover);
+}
+
+/* ===================================================
+   MEDIA QUERIES - RESPONSIVIDADE
+   =================================================== */
+
+/* Tablet (até 1024px) */
+@media (max-width: 1024px) {
+    .container-conteudo {
+        padding: 20px 15px;
+    }
+
+    .tabela-container {
+        padding: 20px 15px;
+    }
+
+    .container-cadastro {
+        padding: 25px 20px;
+    }
+
+    .item-menu a {
+        font-size: 18pt;
+        padding: 15px 4%;
+        margin-bottom: 25px;
+    }
+}
+
+/* Tablet pequeno / Mobile grande (até 768px) */
+@media (max-width: 768px) {
+    /* Exibir botão hamburguer */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu fica escondido à esquerda */
+    .menu-lateral {
+        transform: translateX(-100%);
+        width: 260px;
+    }
+
+    /* Menu aberto (classe adicionada via JS) */
+    .menu-lateral.aberto {
+        transform: translateX(0);
+    }
+
+    /* Conteúdo ocupa a tela toda */
+    .container-conteudo {
+        margin-left: 0;
+        padding: 70px 15px 20px;
+        justify-content: flex-start;
+    }
+
+    .container-informacoes {
+        gap: 12px;
+    }
+
+    .box-informacoes {
+        flex: 1 1 calc(50% - 12px);
+        min-width: 140px;
+        height: auto;
+        min-height: 110px;
+    }
+
+    .tabela-container {
+        padding: 15px 10px;
+        border-radius: 15px;
+        margin-top: 15px;
+    }
+
+    .header-produtos {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .produtos {
+        font-size: 20pt;
+    }
+
+    .procurarProduto {
+        width: 100%;
+    }
+
+    .addProduto {
+        width: 100%;
+    }
+
+    .button-adicionar button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .container-cadastro {
+        padding: 20px 15px;
+    }
+
+    .header-cadastro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .container-secao {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .header-secao {
+        font-size: 16pt;
+    }
+
+    .secao {
+        flex-direction: column;
+    }
+
+    .secao-option {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .total-text {
+        font-size: 20pt;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    .container-informacoes {
+        flex-direction: column;
+    }
+
+    .box-informacoes {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .tabela-container {
+        padding: 10px 5px;
+        border-radius: 12px;
+    }
+
+    .tabela th,
+    .tabela td {
+        padding: 8px 8px;
+        font-size: 0.8em;
+    }
+
+    .estavel,
+    .atencao,
+    .critico {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+
+    .produtos {
+        font-size: 17pt;
+    }
+
+    .item-menu a {
+        font-size: 16pt;
+    }
+
+    .informacoes-text {
+        font-size: 12pt;
+    }
+
+    .total-text {
+        font-size: 18pt;
+    }
 }
