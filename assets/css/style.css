@@ -119,12 +119,17 @@ ul {
 .container-conteudo {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin-left: var(--menu-width);
     min-height: 100vh;
-    padding: 20px;
     transition: var(--transition);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
 }
 
 /* ===== TABELA ===== */
@@ -156,9 +161,9 @@ ul {
 }
 
 .tabela thead tr {
-    background-color: #007bff;
-    color: #ffffff;
+    color: #7b7b7b;
     text-align: left;
+    border-bottom: 1px solid #dddddd;
 }
 
 .tabela th,
@@ -243,7 +248,7 @@ ul {
     display: flex;
     flex-direction: column;
     margin: 15px 20px;
-    width: 350px;
+    width: 480px;
     flex: 1 1 200px;
 }
 
@@ -254,7 +259,7 @@ ul {
     height: 40px;
     border: solid 2px #d0d0d0;
     padding: 0 10px;
-    border-radius: 10px;
+    border-radius: 6px;
 }
 
 .input-select select{
@@ -417,10 +422,19 @@ ul {
     flex-direction: column;
     width: 100%;
     padding: 40px 30px;
-    max-width: 1200px;
+    max-width: 1600px;
     flex-wrap: wrap;
     border-radius: 20px;
     box-shadow: var(--box-shadow);
+}
+
+.tabela-movimentacao {
+    background-color: #ffffff;
+    width: 100%;
+    height: 100%;
+    max-height: 25vh;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 .header-movimentacao {
@@ -454,8 +468,40 @@ ul {
     background-color: white;
 }
 
+#autocomplete {
+    display: none;
+    background-color: white;
+    border: solid 1px #333;
+    position: absolute;
+    margin-top: 62px;
+    max-height: 150px;
+    height: auto;
+    overflow: scroll;
+    width: 15%;
+}
 
+#autocomplete ul {
+    list-style: none;
+    padding: 2px;
+}
 
+#autocomplete ul li {
+    border-bottom: solid 1px #333;
+}
+
+#autocomplete ul li:hover {
+    background-color: beige;
+    cursor: pointer;
+}
+
+#autocomplete ul li a {
+    text-decoration: none;
+    color: blue;
+}
+
+#autocomplete #notfound {
+    color: blue;
+}
 
 /* ===== PESQUISA ===== */
 .procurarProduto {

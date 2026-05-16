@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link href="../assets/fontawesome/css/all.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/senai/assets/css/style.css">
+    <link href="/senai/assets/fontawesome/css/all.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <title>Senai</title>
 </head>
@@ -54,8 +54,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button-adicionar">
-                        <button name='submit'>Adicionar</button>
+                    <div class="button-container">
+                        <div class="button-adicionar">
+                            <button name="name">Adicionar</button>
+                        </div>
                     </div>
                 </form>
             </div>

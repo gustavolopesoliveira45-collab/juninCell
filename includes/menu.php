@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/fontawesome/css/all.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="style.css">
+    <link href="/senai/assets/fontawesome/css/all.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/senai/assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <title>Senai</title>
 </head>
@@ -13,12 +13,10 @@
         $paginaAtual = basename($_SERVER['PHP_SELF'])
     ?>
 
-    <!-- Botão hamburguer (visível só no mobile) -->
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
         <i class="fa-solid fa-bars"></i>
     </button>
 
-    <!-- Overlay escuro ao abrir o menu no mobile -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
   <nav class="menu-lateral" id="menuLateral">
@@ -77,7 +75,6 @@
 
     overlay.addEventListener('click', fecharMenu);
 
-    // Fechar ao clicar em um link do menu (mobile)
     document.querySelectorAll('.item-menu a').forEach(link => {
         link.addEventListener('click', fecharMenu);
     });

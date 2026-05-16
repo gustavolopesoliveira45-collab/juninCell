@@ -9,13 +9,14 @@
         $precoVenda = $_POST['precoVenda'];
         $fornecedor = $_POST['fornecedor'];
         $qtdProduto = $_POST['qtdProduto'];
-        $qtdProdutoMinimo = $_POST['qtdProdutoMinimo'];
 
-        $sqlUpdate = "UPDATE produtos SET nomeProduto='$nomeProduto',precoCusto='$precoCusto',precoVenda='$precoVenda',fornecedor='$fornecedor',qtdProduto='$qtdProduto',qtdProdutoMinimo='$qtdProdutoMinimo' WHERE idprodutos='$idprodutos'";
+        $sqlUpdate = "UPDATE produtos SET nomeProduto='$nomeProduto',precoCusto='$precoCusto',precoVenda='$precoVenda',fornecedor='$fornecedor',qtdProduto='$qtdProduto' WHERE idprodutos='$idprodutos'";
 
         $result = $conexao->query($sqlUpdate);
-    }
-    header('location: ../../pages/produtos.php');
 
+        
+    }
+
+    header('location: ../pages/produtos.php');
 
 ?>
