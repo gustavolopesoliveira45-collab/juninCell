@@ -5,9 +5,9 @@ var idProduto = document.querySelector('#idprodutoSelecionado');
 searchInput.addEventListener('input', _.throttle(async function(event) {
     var valor = event.target.value;
 
-    if (valor.length >= 3) {
+    if (valor.length >= 1) {
         try {
-            const { data } = await axios.get('/senai/includes/books.php', {
+            const { data } = await axios.get('/senai/includes/produtosSearch.php', {
                 params: { book: valor }
             });
 

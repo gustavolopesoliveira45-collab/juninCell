@@ -17,6 +17,6 @@
         
     }
 
-    header('location: ../pages/produtos.php');
+    header('location: /senai/pages/produtos.php');
 
 ?>

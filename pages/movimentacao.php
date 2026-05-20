@@ -19,12 +19,10 @@
 
     $result = $conexao->query($sql);
 
-
-
     ?>
     <div class="container-conteudo">
-        <div class="container">
-            <div class="container-movimentacao">
+        <div class="container-movimentacao">
+            <div class="container-form-movimentacao">
                 <div class="header-movimentacao">
                     <div class="header-text">
                         <span class="plus-icon"><i class="fa-solid fa-plus"></i></span>
@@ -76,24 +74,15 @@
                     </div>
                 </div>
             </div>
-            <div class="tabela-movimentacao">
-                <div class="header-produtos">
+            <div class="container-tabela-movimentacao">
+                <div class="header-movimentacao">
                     <div class="produtos">
-                        <span class="icon-produtos"><i class="fa-solid fa-cart-shopping"></i></span>
-                        <span class="text-produtos">Produtos</span>
-                    </div>
-                    <div class="procurarProduto">
-                        <form action="" method="">
-                            <input type="search" name="procurarProduto" placeholder="Procurar Produto">
-                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
-                    </div>
-                    <div class="addProduto">
-                        <a href="../pages/telaCadastroProdutos.php">Adicionar Produto</a>
+                        <span><i class="fa-solid fa-clock-rotate-left"></i></span>
+                        <span>Historico de Movimentação</span>
                     </div>
                 </div>
-                <div class="lista-produtos">
-                    <table class="tabela">
+                <div class="lista-movimentacao">
+                    <table class="tabela-movimentacao">
                         <thead>
                             <tr>
                                 <th scope="col">Horario</th>

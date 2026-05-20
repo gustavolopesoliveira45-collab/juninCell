@@ -16,31 +16,43 @@
     include('../includes/menu.php');
     include('../includes/conexao.php');
 
+    
+    $sqlProdutosCount = "SELECT COUNT(*) as c FROM produtos";
+    $resultProdutosCount = $conexao->query($sqlProdutosCount);
 
+    $sqlProdutosCount = $resultProdutosCount->fetch_assoc();
+    $produtoCount = $sqlProdutosCount['c'];
+
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $limit = 7;
+    $pageInterval = 2;
+    $offset = ($page - 1) * $limit;
+
+    $pageNumber = ceil ($produtoCount / $limit);
+
+    $sql = "SELECT * FROM produtos ORDER BY idprodutos DESC LIMIT {$limit} OFFSET {$offset}";
+    $result = $conexao->query($sql);
+    
+
+
+
+    $sqlStatus = "SELECT qtdProduto FROM produtos";
+    
     $sqlSelect = "SELECT COUNT(*) AS idprodutos FROM produtos";
-
     $resultado = $conexao->query($sqlSelect);
-
     $dados = $resultado->fetch_assoc();
 
     $totalProdutos = $dados['idprodutos'];
-
-    $sql = "SELECT * FROM produtos ORDER BY idprodutos DESC";
-
-    $result = $conexao->query($sql);
-
-    $sqlStatus = "SELECT qtdProduto FROM produtos";
-
     ?>
 
     <div class="container-conteudo">
-        <div class="container">
+        <div class="container-produtos">
             <div class="container-informacoes">
                 <div class="box-informacoes">
                     <div class="informacoes-name">
                         <span class="informacoes-text">Total de Produtos</span>
                         <div class="informacoes-total">
-                            <span class="total-text"> <?php echo $totalProdutos ?></span>
+                            <span class="total-text"> <?= $produtoCount; ?> </span>
                             <span class="total-produtos"><i class="fa-solid fa-truck"></i></span>
                         </div>
                     </div>
@@ -145,6 +157,30 @@
                         </tbody>
                     </table>
                 </div>
+                <p>
+                    <?php echo "Pagina: {$page}" ?>
+                    <?php echo "Numero de Paginas {$pageNumber}" ?>
+                </p>
+                <p>
+                    <a href="?page=1">
+                        <
+                    </a>
+                    <?php 
+                    $fistPage = max($page - $pageInterval, 1);
+                    $lastPage = min($pageNumber, $page + $pageInterval);
+                        for($p = $fistPage; $p <= $lastPage; $p++) {
+                            if($p == $page) {
+                                echo "[{$p}]";
+                            } else {
+                                echo "<a href='?page={$p}'>[{$p}]</a>";
+                            }
+                            
+                        }
+                    ?>
+                    <a href="?page=<?php echo $pageNumber; ?>">
+                        >
+                    </a>
+                </p>
             </div>
         </div>
     </div>
