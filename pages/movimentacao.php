@@ -15,8 +15,21 @@
     include('../includes/menu.php');
     include('../includes/conexao.php');
 
-    $sql = "SELECT * FROM movimentacao ORDER BY idmovimentacao DESC";
+    $sqlMovimentacaoCount = "SELECT COUNT(*) as c FROM movimentacao";
+    $resultMovimentacaoCount = $conexao->query($sqlMovimentacaoCount);
 
+    $sqlMovimentacaoCount = $resultMovimentacaoCount->fetch_assoc();
+    $MovimentacaoCount = $sqlMovimentacaoCount['c'];
+
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $limit = 7;
+    $pageInterval = 2;
+    $offset = ($page - 1) * $limit;
+
+    $pageNumber = ceil ($MovimentacaoCount / $limit);
+    
+
+    $sql = "SELECT * FROM movimentacao ORDER BY idmovimentacao DESC";
     $result = $conexao->query($sql);
 
     ?>
@@ -32,7 +45,7 @@
                 </div>
                 <div class="main-movimentacao">
                     <div class="formulario-movimentacao">
-                        <form action="/senai/action/produtos/salvarMovimentacao.php" method="post">
+                        <form action="/juninCell/action/produtos/salvarMovimentacao.php" method="post">
                             <div class="input-container">
                                 <div class="input-grupo">
                                     <div class="input">
@@ -94,18 +107,38 @@
                         </thead>
                         <tbody>
                             <?php
-                            while ($user_data = mysqli_fetch_assoc($result)) {
-                                echo "<tr>";
-                                echo "<td>" . $user_data['horario'] . "</td>";
-                                echo "<td>" . $user_data['idprodutos'] . "</td>";
-                                echo "<td>" . $user_data['tipo'] . "</td>";
-                                echo "<td>" . $user_data['qtdMovimentacao'] . "</td>";
-                                echo "<td>" . $user_data['motivo'] . "</td>";
-                                echo "</tr>";
-                            }
+                                while ($user_data = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                        echo "<td>" . $user_data['horario'] . "</td>";
+                                        echo "<td>" . $user_data['idprodutos'] . "</td>";
+                                        echo "<td>" . $user_data['tipo'] . "</td>";
+                                        echo "<td>" . $user_data['qtdMovimentacao'] . "</td>";
+                                        echo "<td>" . $user_data['motivo'] . "</td>";
+                                    echo "</tr>";
+                                }
                             ?>
                         </tbody>
                     </table>
+                    <div class="paginacao-container">
+                        <a href="?page=1" class="paginacao">
+                            <
+                        </a>
+                        <?php 
+                            $fistPage = max($page - $pageInterval, 1);
+                            $lastPage = min($pageNumber, $page + $pageInterval);
+                            for($p = $fistPage; $p <= $lastPage; $p++) {
+                                if($p == $page) {
+                                    echo "<a class='paginacao primeiro'> {$p} </a>";
+                                } else {
+                                    echo "<a href='?page={$p}' class='paginacao'>{$p}</a>";
+                                }
+                                
+                            }
+                        ?>
+                        <a href="?page=<?php echo $pageNumber; ?>" class="paginacao">
+                            >
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,7 +147,7 @@
         integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.8/underscore-umd-min.js"></script>
-    <script src="/senai/assets/js/search.js"></script>
+    <script src="/juninCell/assets/js/search.js"></script>
 </body>
 
 </html>

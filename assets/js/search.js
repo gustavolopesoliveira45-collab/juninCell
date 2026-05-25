@@ -7,7 +7,7 @@ searchInput.addEventListener('input', _.throttle(async function(event) {
 
     if (valor.length >= 1) {
         try {
-            const { data } = await axios.get('/senai/includes/produtosSearch.php', {
+            const { data } = await axios.get('/juninCell/includes/produtosSearch.php', {
                 params: { book: valor }
             });
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/juninCell/assets/css/style.css">
     <link href="/juninCell/assets/fontawesome/css/all.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Senai</title>
 
 </head>
@@ -30,7 +30,8 @@
 
     $pageNumber = ceil ($produtoCount / $limit);
 
-    $sql = "SELECT * FROM produtos ORDER BY idprodutos DESC LIMIT {$limit} OFFSET {$offset}";
+
+    $sql = "SELECT * FROM produtos ORDER BY CASE WHEN status = 'ativo' THEN 1 ELSE 2 END, idprodutos DESC LIMIT {$limit} OFFSET {$offset}";
     $result = $conexao->query($sql);
     
 
@@ -107,80 +108,108 @@
                             <tr>
                                 <th scope="col">Codigo</th>
                                 <th scope="col">Nome</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Fornecedor</th>
                                 <th scope="col">Preço de Custo</th>
                                 <th scope="col">Preço de Venda</th>
                                 <th scope="col">Quantidade</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Alerta</th>
                                 <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            while ($user_data = mysqli_fetch_assoc($result)) {
-                                echo "<tr>";
-                                echo "<td>" . $user_data['idprodutos'] . "</td>";
-                                echo "<td>" . $user_data['nomeProduto'] . "</td>";
-                                echo "<td>" . $user_data['fornecedor'] . "</td>";
-                                echo "<td>R$ " . $user_data['precoCusto'] . "</td>";
-                                echo "<td>R$ " . $user_data['precoVenda'] . "</td>";
-                                echo "<td>" . $user_data['qtdProduto'] . "</td>";
+                                while ($user_data = mysqli_fetch_assoc($result)) {
 
-                                $quantidade = $user_data['qtdProduto'];
+                                    echo "<tr>";
 
-                                if ($quantidade > 20) {
-                                    $status = '<span class="estavel">Estável</span>';
-                                } else if ($quantidade >= 10) {
-                                    $status = '<span class="atencao">Atenção</span>';
-                                } else {
-                                    $status = '<span class="critico">Crítico</span>';
+                                        echo "<td>" . $user_data['idprodutos'] . "</td>";
+                                        echo "<td>" . $user_data['nomeProduto'] . "</td>";  
+                                        echo "<td>";
+
+                                        if($user_data['status'] == 'ativo') {
+                                            echo "<span class='status-ativo'>Ativo</span>";
+                                        } else {
+                                            echo "<span class='status-inativo'>Inativo</span>";
+                                        }
+
+                                        echo "</td>";
+
+                                        echo "<td>" . $user_data['fornecedor'] . "</td>";
+                                        echo "<td>R$ " . $user_data['precoCusto'] . "</td>";
+                                        echo "<td>R$ " . $user_data['precoVenda'] . "</td>";
+                                        echo "<td>" . $user_data['qtdProduto'] . "</td>";
+
+                                        $quantidade = $user_data['qtdProduto'];
+
+                                        if ($quantidade > 20) {
+                                            $status = '<span class="estavel">Estável</span>';
+                                        } else if ($quantidade >= 10) {
+                                            $status = '<span class="atencao">Atenção</span>';
+                                        } else {
+                                            $status = '<span class="critico">Crítico</span>';
+                                        }
+
+                                        echo "<td>$status</td>";
+
+                                        echo "<td>";
+
+                                            echo "
+                                            <a class='btn btn-primary' href='../action/produtos/editProdutos.php?idprodutos={$user_data['idprodutos']}'>
+                                                <i class='fa-solid fa-pen'></i>
+                                            </a>
+                                            ";
+
+                                            echo "
+                                            <a class='btn btn-danger' href='../action/produtos/deleteProdutos.php?idprodutos={$user_data['idprodutos']}'>
+                                                <i class='bi bi-trash3-fill'></i>
+                                            </a>
+                                            ";
+
+                                            if($user_data['status'] == 'ativo') {
+
+                                                echo "
+                                                <a class='btn btn-danger' href='../action/produtos/desativarProduto.php?idprodutos={$user_data['idprodutos']}' class='btn-desativar'>
+                                                    <i class='fa-solid fa-ban'></i>
+                                                </a>
+                                                ";
+
+                                            } else {
+
+                                                echo 
+                                                "<a class='btn btn-success' href='../action/produtos/ativarProduto.php?idprodutos={$user_data['idprodutos']}' class='btn-ativar'>
+                                                    <i class='fa-solid fa-check'></i>
+                                                </a>";
+                                            }
+
+                                        echo "</td>";
+
+                                    echo "</tr>";
                                 }
-
-                                echo "<td>" . $status . "</td>";
-                                echo "<td>
-                                        <a class='btn btn-primary' href='../action/produtos/editProdutos.php?idprodutos=$user_data[idprodutos]'>
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil-fill' viewBox='0 0 16 16'>
-                                            <path d='M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.5.5 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11z'/>
-                                            </svg>
-                                        </a>
-
-                                        <a class='btn btn-danger' href='../action/produtos/deleteProdutos.php?idprodutos=$user_data[idprodutos]'>
-                                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-                                            <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0'/>
-                                            </svg>
-                                        </a>
-                                    </td>";
-
-                                echo "</tr>";
-                            }
-                            ?>
+                                ?>
                         </tbody>
                     </table>
                 </div>
-                <p>
-                    <?php echo "Pagina: {$page}" ?>
-                    <?php echo "Numero de Paginas {$pageNumber}" ?>
-                </p>
-                <p>
-                    <a href="?page=1">
+                <div class="paginacao-container">
+                    <a href="?page=1" class="paginacao">
                         <
                     </a>
                     <?php 
-                    $fistPage = max($page - $pageInterval, 1);
-                    $lastPage = min($pageNumber, $page + $pageInterval);
+                        $fistPage = max($page - $pageInterval, 1);
+                        $lastPage = min($pageNumber, $page + $pageInterval);
                         for($p = $fistPage; $p <= $lastPage; $p++) {
                             if($p == $page) {
-                                echo "[{$p}]";
+                                echo "<a class='paginacao primeiro'> {$p} </a>";
                             } else {
-                                echo "<a href='?page={$p}'>[{$p}]</a>";
+                                echo "<a href='?page={$p}' class='paginacao'>{$p}</a>";
                             }
                             
                         }
                     ?>
-                    <a href="?page=<?php echo $pageNumber; ?>">
+                    <a href="?page=<?php echo $pageNumber; ?>" class="paginacao">
                         >
                     </a>
-                </p>
+                </div>
             </div>
         </div>
     </div>

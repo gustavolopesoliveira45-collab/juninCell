@@ -38,7 +38,7 @@
         die("Erro ao salvar histórico: " . $conexao->error);
     }
 
-    header("Location: /senai/pages/movimentacao.php");
+    header("Location: /juninCell/pages/movimentacao.php");
     exit();
 
 ?>

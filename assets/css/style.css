@@ -145,17 +145,17 @@ ul {
 .tabela-container {
     background-color: #ffffffff;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     height: auto;
     border-radius: 10px;
     margin-top: 30px;
-    padding: 30px 30px;
+    padding: 20px 30px;
     box-shadow: var(--box-shadow);
 }
 
 .lista-produtos {
     margin: 0;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: auto;
     overflow-x: auto;
     height: auto;
@@ -216,6 +216,48 @@ ul {
     padding: 10px 20px;
     border-radius: 15px;
     white-space: nowrap;
+}
+
+.status-ativo {
+    background-color: #15ff004e;
+    color: #115705;
+    padding: 10px 20px;
+    border-radius: 15px;
+    white-space: nowrap;
+}
+
+.status-inativo {
+    background-color: #fe0c0c4e;
+    color: #ff0000;
+    padding: 10px 20px;
+    border-radius: 15px;
+    white-space: nowrap;
+}
+
+
+
+/* ===== PAGINAÇÃO ===== */
+.paginacao-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.paginacao {
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 13pt;
+    color: #515151c9;
+    transition: var(--transition);
+}
+
+.paginacao:hover {
+    color: #007bff;
+}
+
+.primeiro {
+    color: #007bff;
+    cursor: default;
 }
 
 /* ===== CADASTRO ===== */
@@ -509,7 +551,6 @@ ul {
 }
 
 /* ===== TABELA-MOVIMENTAÇAO ===== */
-
 .container-tabela-movimentacao {
     background-color: #ffffffff;
     width: 100%;
@@ -521,10 +562,8 @@ ul {
 }
 
 .lista-movimentacao {
-    max-height: 100px;
+    max-height: 200px;
     height: 100%;
-    overflow-y: auto;
-    overflow-x: auto;
     height: auto;
 }
 

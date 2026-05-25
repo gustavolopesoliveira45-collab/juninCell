@@ -17,6 +17,6 @@
         
     }
 
-    header('location: /senai/pages/produtos.php');
+    header('location: /juninCell/pages/produtos.php');
 
 ?>
