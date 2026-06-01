@@ -36,7 +36,6 @@
     
 
 
-
     $sqlStatus = "SELECT qtdProduto FROM produtos";
     
     $sqlSelect = "SELECT COUNT(*) AS idprodutos FROM produtos";
@@ -177,7 +176,7 @@
                                             } else {
 
                                                 echo 
-                                                "<a class='btn btn-success' href='../action/produtos/ativarProduto.php?idprodutos={$user_data['idprodutos']}' class='btn-ativar'>
+                                                "<a class='btn btn-success' href='/juninCell/action/produtos/ativarProduto.php?idprodutos={$user_data['idprodutos']}' class='btn-ativar'>
                                                     <i class='fa-solid fa-check'></i>
                                                 </a>";
                                             }

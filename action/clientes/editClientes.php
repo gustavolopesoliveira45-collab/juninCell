@@ -1,3 +1,33 @@
+<?php
+
+    include ('../../includes/conexao.php');
+    include('../../includes/menu.php');
+
+    if(!empty($_GET['idclientes'])) {
+
+        $idclientes = $_GET['idclientes'];
+
+        $sqlSelect = "SELECT * FROM clientes WHERE idclientes = $idclientes";
+
+        $result = $conexao->query($sqlSelect);
+
+        if($result->num_rows > 0) {
+        
+            while($user_data = mysqli_fetch_assoc($result)) {
+
+                $nomeCliente = $user_data['nomeCliente'];
+                $valorPeca = $user_data['valorPeca'];
+                $aparelho = $user_data['aparelho'];
+                $valorMaoObra = $user_data['valorMaoObra'];
+                $contato = $user_data['contato'];
+                $problema = $user_data['problema'];
+
+            }
+        } else {
+            header('location: /juninCell/pages/clientes.php');
+        }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,10 +40,6 @@
     <title>Senai</title>
 </head>
 <body class="background">
-    <?php
-        include('../includes/menu.php');
-    ?>
-
     <div class="container-conteudo">
         <div class="container-cadastro">
             <div class="formulario">
@@ -23,41 +49,42 @@
                         <span>Cadastrar Cliente</span>
                     </div>
                     <div class="voltar">
-                        <a href="../pages/clientes.php">Voltar</a>
+                        <a href="/juninCell/pages/clientes.php">Voltar</a>
                     </div>
                 </div>
                 <div class="form">
-                    <form action="/juninCell/action/clientes/cadastroClientes.php" method="post">
+                    <form action="/juninCell/action/clientes/saveEditClientes.php" method="post">
                         <div class="input-grupo">
                             <div class="input">
                                 <label for="nomeCliente">Nome</label>
-                                <input type="text" name="nomeCliente" placeholder="Ex: Gustavo Lopes" id="nomeCliente">
+                                <input type="text" name="nomeCliente" placeholder="Ex: Gustavo Lopes" id="nomeCliente" value="<?php echo $nomeCliente?>">
                             </div>
                             <div class="input">
                                 <label for="aparelho">Aparelho</label>
-                                <input type="text" name="aparelho" placeholder="Ex: Iphone 13 Pro Max" id="aparelho">
+                                <input type="text" name="aparelho" placeholder="Ex: Iphone 13 Pro Max" id="aparelho" value="<?php echo $aparelho?>">
                             </div>
                         </div>
                         <div class="input-grupo">
                             <div class="input">
                                 <label for="valorPeca">Valor da Peça</label>
-                                <input type="number" name="valorPeca" placeholder="Ex: R$100,00" id="valorPeca">
+                                <input type="number" name="valorPeca" placeholder="Ex: R$100,00" id="valorPeca" value="<?php echo $valorPeca?>">
                             </div>
                             <div class="input">
                                 <label for="valorMaoObra">Valor Mão de Obra</label>
-                                <input type="number" name="valorMaoObra" placeholder="Ex: R$50,00" id="valorMaoObra">
+                                <input type="number" name="valorMaoObra" placeholder="Ex: R$50,00" id="valorMaoObra" value="<?php echo $valorMaoObra?>">
                             </div>
                             <div class="input">
                                 <label for="contato">Contato</label>
-                                <input type="text" name="contato" placeholder="Ex: 21 97615-8349" id="contato">
+                                <input type="text" name="contato" placeholder="Ex: 21 97615-8349" id="contato" value="<?php echo $contato?>">
                             </div>
                         </div>
                         <div class="input-problema">
                             <label for="problema">Problema</label>
-                            <input type="text" name="problema" placeholder="Ex: Celular não está carregando" id="problema">
+                            <input type="text" name="problema" placeholder="Ex: Celular não está carregando" id="problema" value="<?php echo $problema?>">
                         </div>
+                        <input type="hidden" name="idclientes" value="<?php echo $idclientes ?>">
                         <div class="container-button">
-                            <button name="submit">Cadastrar</button>
+                            <button name="update">Atualizar</button>
                         </div>
                     </form>
                 </div>

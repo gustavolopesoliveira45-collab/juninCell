@@ -1,6 +1,7 @@
 <?php
 
     include ('../../includes/conexao.php');
+    include('../../includes/menu.php');
 
     if(!empty($_GET['idprodutos'])) {
 
@@ -22,11 +23,10 @@
 
             }
         } else {
-            header('location: pages/produtos.php');;
+            header('location: /juninCell/pages/produtos.php');
         }
     }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -39,10 +39,7 @@
     <title>Senai</title>
 </head>
 <body class="background">
-    <?php
-        include('../../includes/menu.php');
-    ?>
-<div class="container-conteudo">
+    <div class="container-conteudo">
         <div class="container-cadastro">
             <div class="header-cadastro">
                 <div class="produtos">
@@ -55,7 +52,7 @@
             </div>
             <hr>
             <div class="formulario">
-                <form action="../../action/produtos/saveEditProdutos.php" method="post">
+                <form action="/juninCell/action/produtos/saveEditProdutos.php" method="post">
                     <div class="input-container">
                         <div class="input-grupo">
                             <div class="input">
@@ -92,6 +89,5 @@
             </div>
         </div>
     </div>
-    v
 </body>
 </html>
