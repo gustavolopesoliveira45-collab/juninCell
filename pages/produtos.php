@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/juninCell/assets/css/style.css">
-    <link href="/juninCell/assets/fontawesome/css/all.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <title>Senai</title>
-
-</head>
-
-<body class="background">
     <?php
+
     include('../includes/menu.php');
     include('../includes/conexao.php');
-
-    
+        
     $sqlProdutosCount = "SELECT COUNT(*) as c FROM produtos";
     $resultProdutosCount = $conexao->query($sqlProdutosCount);
 
@@ -33,18 +19,30 @@
 
     $sql = "SELECT * FROM produtos ORDER BY CASE WHEN status = 'ativo' THEN 1 ELSE 2 END, idprodutos DESC LIMIT {$limit} OFFSET {$offset}";
     $result = $conexao->query($sql);
-    
+        
 
 
     $sqlStatus = "SELECT qtdProduto FROM produtos";
-    
+        
     $sqlSelect = "SELECT COUNT(*) AS idprodutos FROM produtos";
     $resultado = $conexao->query($sqlSelect);
     $dados = $resultado->fetch_assoc();
 
     $totalProdutos = $dados['idprodutos'];
-    ?>
+?>
 
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/juninCell/assets/css/style.css">
+    <link href="/juninCell/assets/fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Senai</title>
+</head>
+<body class="background">
     <div class="container-conteudo">
         <div class="container-produtos">
             <div class="container-informacoes">
@@ -86,19 +84,22 @@
                 </div>
             </div>
             <div class="tabela-container">
-                <div class="header-produtos">
-                    <div class="produtos">
+                <div class="header-tabela">
+                    <div class="header-text">
                         <span class="icon-produtos"><i class="fa-solid fa-cart-shopping"></i></span>
-                        <span class="text-produtos">Produtos</span>
+                        <select name="" id="">
+                            <option value="espera">Produtos para Clientes</option>
+                            <option value="espera">Produtos para Manutenção</option>
+                        </select>
                     </div>
-                    <div class="procurarProduto">
+                    <div class="procurar-tabela">
                         <form action="" method="">
                             <input type="search" name="procurarProduto" placeholder="Procurar Produto">
                             <button><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
-                    <div class="addProduto">
-                        <a href="../pages/telaCadastroProdutos.php">Adicionar Produto</a>
+                    <div class="voltar">
+                        <a href="/juninCell/pages/telaCadastroProdutos.php">Adicionar</a>
                     </div>
                 </div>
                 <div class="lista-produtos">
@@ -213,5 +214,4 @@
         </div>
     </div>
 </body>
-
 </html>

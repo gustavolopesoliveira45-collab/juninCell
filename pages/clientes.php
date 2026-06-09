@@ -84,9 +84,11 @@
                     <div class="header-text">
                         <span class="icon-produtos"><i class="fa-solid fa-user"></i></span>
                         <select name="" id="">
-                            <option value="espera">Clientes em Espera</option>
-                            <option value="aceitos">Clientes Aceitos</option>
-                            <option value="feitos">Clientes Atendidos</option>
+                            <option value="">Clientes em Espera</option>
+                            <option value="">Clientes Pensando</option>
+                            <option value="">Clientes em Atendimento</option>
+                            <option value="">Clientes Atendidos</option>
+                            <option value="">Clientes que Negaram</option>
                         </select>
                     </div>
                     <div class="procurar-tabela">

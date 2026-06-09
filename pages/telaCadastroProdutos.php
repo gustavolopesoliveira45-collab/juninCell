@@ -16,19 +16,18 @@
 
     <div class="container-conteudo">
         <div class="container-cadastro">
-            <div class="header-cadastro">
-                <div class="produtos">
-                    <span><i class="fa-solid fa-cart-shopping"></i></span>
-                    <span>Cadastrar Produto</span>
-                </div>
-                <div class="addProduto">
-                    <a href="../pages/produtos.php">Voltar</a>
-                </div>
-            </div>
-            <hr>
             <div class="formulario">
-                <form action="../action/produtos/cadastroProdutos.php" method="post">
-                    <div class="input-container">
+                <div class="header-cadastro">
+                    <div class="header-text">
+                        <span><i class="fa-solid fa-cart-shopping"></i></span>
+                        <span>Cadastrar Produto</span>
+                    </div>
+                    <div class="voltar">
+                        <a href="../pages/produtos.php">Voltar</a>
+                    </div>
+                </div>
+                <div class="form">
+                    <form action="/juninCell/action/produtos/cadastroProdutos.php" method="post">
                         <div class="input-grupo">
                             <div class="input">
                                 <label for="nomeProduto">Nome do Produto</label>
@@ -53,13 +52,11 @@
                                 <input type="number" id="qtdProduto" name="qtdProduto" placeholder="Ex: 25 Unidades">
                             </div>
                         </div>
-                    </div>
-                    <div class="button-container">
-                        <div class="button-adicionar">
-                            <button name="name">Adicionar</button>
+                        <div class="container-button">
+                            <button name="submit">Cadastrar</button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -21,35 +21,35 @@
 
   <nav class="menu-lateral" id="menuLateral">
     <ul>
-        <li class="item-menu <?= ($paginaAtual == '../pages/index.php') ? 'ativo' : '' ?>">
+        <li class="item-menu <?= ($paginaAtual == '/juninCell/pages/index.php') ? 'ativo' : '' ?>">
             <a href="../pages/index.php">
                 <span class="icon"><i class="fa-solid fa-chart-column"></i></span>
                 <span class="link">Dashboard</span>
             </a>
         </li>
 
-        <li class="item-menu <?= ($paginaAtual == '../pages/movimentacao.php') ? 'ativo' : '' ?>">
+        <li class="item-menu <?= ($paginaAtual == '/juninCell/pages/movimentacao.php') ? 'ativo' : '' ?>">
             <a href="../pages/movimentacao.php">
                 <span class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></span>
                 <span class="link">Movimentação</span>
             </a>
         </li>
 
-        <li class="item-menu <?= ($paginaAtual == '../pages/produtos.php') ? 'ativo' : '' ?>">
+        <li class="item-menu <?= ($paginaAtual == '/juninCell/pages/produtos.php') ? 'ativo' : '' ?>">
             <a href="../pages/produtos.php">
                 <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
                 <span class="link">Produtos</span>
             </a>
         </li>
 
-        <li class="item-menu <?= ($paginaAtual == '../pages/clientes.php') ? 'ativo' : '' ?>">
+        <li class="item-menu <?= ($paginaAtual == '/juninCell/pages/clientes.php') ? 'ativo' : '' ?>">
             <a href="../pages/clientes.php">
                 <span class="icon"><i class="fa-solid fa-calendar"></i></span>
                 <span class="link">Clientes</span>
             </a>
         </li>
 
-        <li class="item-menu <?= ($paginaAtual == '../pages/historico.php') ? 'ativo' : '' ?>">
+        <li class="item-menu <?= ($paginaAtual == '/juninCell/pages/historico.php') ? 'ativo' : '' ?>">
             <a href="../pages/historico.php">
                 <span class="icon"><i class="fa-solid fa-clock-rotate-left"></i></span>
                 <span class="link">Historico</span>

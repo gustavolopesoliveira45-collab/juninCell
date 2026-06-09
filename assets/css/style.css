@@ -9,19 +9,11 @@
     --menu-width: 300px;
     --menu-link-color: #71a0ce;
     --menu-link-color-hover: #ffffffff;
-    --text-color-option: #504c82;
-    --text-color: #00000000;
-    --menu-color: #181717;
-    --background-color: #9e9e9e22;
-    --transition: 0.3s;
-    --input-search-color: #a5a4a451;
-    --text-search-color: #282828;
     --button-color: #154371;
     --button-text-color: #ffffffff;
     --button-color-hover: #6baff4;
+    --transition: 0.3s;
     --box-shadow: 1px 1px 6px #737373;
-    --informacoes-size-text: 14pt;
-    --informacoes-text-color: #21202082;
 }
 
 /* ===== LINHA ===== */
@@ -34,14 +26,14 @@
 /* ===== BACKGROUND ===== */
 .background {
     min-height: 100vh;
-    background-color: var(--background-color);
+    background-color: #9e9e9e22;
 }
 
 /* ===== MENU LATERAL ===== */
 .menu-lateral {
     width: var(--menu-width);
     height: 100%;
-    background-color: var(--menu-color);
+    background-color: #181717;
     padding: 50px 0 20px;
     box-shadow: 7px 0 0 var(--menu-link-color);
     position: fixed;
@@ -245,15 +237,26 @@ ul {
 
 .header-tabela {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 5px 20px;
     flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 15px;
+}
+
+.header-text {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 8px;
+    
 }
 
 .header-text select {
-    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;      
+    cursor: pointer;
     outline: none;
 }
 
@@ -289,6 +292,31 @@ ul {
 }
 
 .procurar-tabela button:hover {
+    background-color: var(--button-color-hover);
+}
+
+.voltar {
+    background-color: var(--button-color);
+    width: 100%;
+    max-width: 160px;
+    height: 45px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.voltar a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--button-text-color);
+    text-decoration: none;
+    font-size: 15pt;
+    font-weight: bold;
+}
+
+.voltar:hover {
     background-color: var(--button-color-hover);
 }
 
@@ -331,30 +359,6 @@ ul {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}
-
-.voltar {
-    background-color: var(--button-color);
-    width: 100%;
-    max-width: 150px;
-    height: 40px;
-    border-radius: 8px;
-    transition: var(--transition);
-}
-
-.voltar a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--button-text-color);
-    text-decoration: none;
-    font-size: 15pt;
-}
-
-.voltar:hover {
-    background-color: var(--button-color-hover);
 }
 
 .form {
@@ -458,8 +462,8 @@ ul {
 }
 
 .informacoes-text {
-    font-size: var(--informacoes-size-text);
-    color: var(--informacoes-text-color);
+    font-size: 14pt;
+    color: #21202082;
     margin: 0 15px;
 }
 
@@ -509,17 +513,9 @@ ul {
 
 /* ===== MOVIMENTAÇÃO ===== */
 
-.container-form-movimentacao {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    padding: 40px 30px;
-    max-width: 1600px;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
+.container-box-movimentacao {
+    background-color: #ffffff;
+    
 }
 
 .tabela-movimentacao {
@@ -532,8 +528,6 @@ ul {
 }
 
 .header-movimentacao {
-    width: 100%;
-    height: 6vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -541,16 +535,9 @@ ul {
 }
 
 .header-text {
-    margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 24px;
+    font-weight: bold;
     color: #007bff;
-}
-
-.plus-icon {
-    background-color: #1e60a1;
-    color: #ffffffff;
-    padding: 5px;
-    border-radius: 30px;
 }
 
 .main-movimentacao {
@@ -599,15 +586,6 @@ ul {
 }
 
 /* ===== TABELA-MOVIMENTAÇAO ===== */
-.container-tabela-movimentacao {
-    background-color: #ffffffff;
-    width: 100%;
-    height: 30vh;
-    padding: 10px 30px 25px;
-    box-shadow: var(--box-shadow);
-    border-radius: 10px;
-    margin-top: 50px;
-}
 
 .lista-movimentacao {
     max-height: 200px;

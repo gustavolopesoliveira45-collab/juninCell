@@ -46,7 +46,7 @@
                 <div class="header-cadastro">
                     <div class="header-text">
                         <span><i class="fa-solid fa-user"></i></span>
-                        <span>Cadastrar Cliente</span>
+                        <span>Editar Cliente</span>
                     </div>
                     <div class="voltar">
                         <a href="/juninCell/pages/clientes.php">Voltar</a>

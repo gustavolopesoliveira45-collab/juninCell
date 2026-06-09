@@ -33,27 +33,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link href="../../assets/fontawesome/css/all.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/juninCell/assets/css/style.css">
+    <link href="/juninCell/assets/fontawesome/css/all.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <title>Senai</title>
 </head>
 <body class="background">
     <div class="container-conteudo">
         <div class="container-cadastro">
-            <div class="header-cadastro">
-                <div class="produtos">
-                    <span><i class="fa-solid fa-pencil"></i>Editar Produto</span>
-                    <span></span>
-                </div>
-                <div class="addProduto">
-                    <a href="../../pages/produtos.php">Voltar</a>
-                </div>
-            </div>
-            <hr>
             <div class="formulario">
-                <form action="/juninCell/action/produtos/saveEditProdutos.php" method="post">
-                    <div class="input-container">
+                <div class="header-cadastro">
+                    <div class="header-text">
+                        <span><i class="fa-solid fa-cart-shopping"></i></span>
+                        <span>Editar Produto</span>
+                    </div>
+                    <div class="voltar">
+                        <a href="/juninCell/pages/produtos.php">Voltar</a>
+                    </div>
+                </div>
+                <div class="form">
+                    <form action="/juninCell/action/produtos/saveEditProdutos.php" method="post">
                         <div class="input-grupo">
                             <div class="input">
                                 <label for="nomeProduto">Nome do Produto</label>
@@ -78,14 +77,12 @@
                                 <input type="number" id="qtdProduto" name="qtdProduto" placeholder="Ex: 25 Unidades" value="<?php echo $qtdProduto?>">
                             </div>
                         </div>
-                    </div>
-                    <input type="hidden" name="idprodutos" value="<?php echo $idprodutos ?>">
-                    <div class="button-container">
-                        <div class="button-adicionar">
-                            <button name="update"><i class="fa-solid fa-floppy-disk"></i>Salvar</button>
+                        <input type="hidden" name="idprodutos" value="<?php echo $idprodutos ?>">
+                        <div class="container-button">
+                            <button name="update">Atualizar</button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

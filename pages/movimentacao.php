@@ -35,7 +35,7 @@
     ?>
     <div class="container-conteudo">
         <div class="container-movimentacao">
-            <div class="container-form-movimentacao">
+            <div class="container-box-movimentacao">
                 <div class="header-movimentacao">
                     <div class="header-text">
                         <span class="plus-icon"><i class="fa-solid fa-plus"></i></span>
@@ -44,31 +44,29 @@
                     <div class="linha"></div>
                 </div>
                 <div class="main-movimentacao">
-                    <div class="formulario-movimentacao">
+                    <div class="form">
                         <form action="/juninCell/action/produtos/salvarMovimentacao.php" method="post">
-                            <div class="input-container">
-                                <div class="input-grupo">
-                                    <div class="input">
-                                        <label for="searchInput">Pesquisar Produto</label>
-                                        <input type="search" id="searchInput" placeholder="Ex: Capa iphone 13"
+                            <div class="input-grupo">
+                                <div class="input">
+                                    <label for="searchInput">Pesquisar Produto</label>
+                                    <input type="search" id="searchInput" placeholder="Ex: Capa iphone 13"
                                             autocomplete="off">
-                                        <input type="hidden" name="idprodutos" id="idprodutoSelecionado">
-                                        <div id="autocomplete"></div>
-                                    </div>
-                                    <div class="input">
-                                        <label for="idprodutos">Quantidade</label>
-                                        <input type="number" name="qtdMovimentacao" placeholder="Ex: 10 unidades">
-                                    </div>
+                                    <input type="hidden" name="idprodutos" id="idprodutoSelecionado">
+                                    <div id="autocomplete"></div>
                                 </div>
-                                <div class="input-grupo">
-                                    <div class="input">
-                                        <label for="idprodutos">Motivo</label>
-                                        <input type="text" name="motivo" placeholder="Ex: Adicionando Produto">
-                                    </div>
-                                    <div class="input">
-                                        <label for="idprodutos">Data e Hora</label>
-                                        <input type="datetime-local" name="horario">
-                                    </div>
+                                <div class="input">
+                                    <label for="idprodutos">Quantidade</label>
+                                    <input type="number" name="qtdMovimentacao" placeholder="Ex: 10 unidades">
+                                </div>
+                            </div>
+                            <div class="input-grupo">
+                                <div class="input">
+                                    <label for="idprodutos">Motivo</label>
+                                    <input type="text" name="motivo" placeholder="Ex: Adicionando Produto">
+                                </div>
+                                <div class="input">
+                                    <label for="idprodutos">Data e Hora</label>
+                                    <input type="datetime-local" name="horario">
                                 </div>
                                 <div class="input-select">
                                     <select name="tipo" id="tipo">
@@ -78,18 +76,16 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="button-container">
-                                <div class="button-adicionar">
-                                    <button><i class="fa-solid fa-floppy-disk"></i>Salvar</button>
-                                </div>
+                            <div class="container-button">
+                                <button name="submit">Cadastrar</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="container-tabela-movimentacao">
+            <div class="container-box-movimentacao">
                 <div class="header-movimentacao">
-                    <div class="produtos">
+                    <div class="header-text">
                         <span><i class="fa-solid fa-clock-rotate-left"></i></span>
                         <span>Historico de Movimentação</span>
                     </div>
