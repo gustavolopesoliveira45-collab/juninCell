@@ -1,3 +1,7 @@
+<?php
+    include('../includes/menu.php');
+    include('../includes/conexao.php');
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,9 +14,6 @@
     <title>Senai</title>
 </head>
 <body class="background">
-    <?php
-        include('../includes/menu.php');
-    ?>
 
     <div class="container-conteudo">
         <div class="container-cadastro">

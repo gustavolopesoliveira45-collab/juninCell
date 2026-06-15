@@ -9,7 +9,6 @@
     $idprodutos = intval($_POST['idprodutos']);
     $qtdMovimentacao = intval($_POST['qtdMovimentacao']);
     $motivo = $_POST['motivo'];
-    $horario = $_POST['horario'];
     $tipo = $_POST['tipo'];
 
     $sqlProduto = "SELECT * FROM produtos WHERE idprodutos = $idprodutos";
@@ -32,7 +31,7 @@
     $sqlUpdate = "UPDATE produtos SET qtdProduto = $novoEstoque WHERE idprodutos = $idprodutos";
     $conexao->query($sqlUpdate);
 
-    $sqlHistorico = "INSERT INTO movimentacao (idprodutos, tipo, qtdMovimentacao, horario, motivo) VALUES ('$idprodutos', '$tipo', '$qtdMovimentacao', '$horario', '$motivo')";
+    $sqlHistorico = "INSERT INTO movimentacao (idprodutos, tipo, qtdMovimentacao, motivo) VALUES ('$idprodutos', '$tipo', '$qtdMovimentacao', '$motivo')";
 
     if (!$conexao->query($sqlHistorico)) {
         die("Erro ao salvar histórico: " . $conexao->error);

@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/juninCell/assets/css/style.css">
-    <link href="/juninCell/assets/fontawesome/css/all.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <title>Senai</title>
-
-</head>
-
-<body class="background">
     <?php
         include('../includes/menu.php');
         include('../includes/conexao.php');
@@ -38,47 +24,22 @@
         
     
     ?>
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/juninCell/assets/css/style.css">
+    <link href="/juninCell/assets/fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Senai</title>
+
+</head>
+
+<body class="background">
     <div class="container-conteudo">
         <div class="container-produtos">
-            <div class="container-informacoes">
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Total de Clientes</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"></span>
-                            <span class="total-produtos"><i class="fa-solid fa-truck"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Total Baixo Estoque</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"> </span>
-                            <span class="total-baixo"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Fora de Estoque</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"></span>
-                            <span class="total-fora"><i class="fa-solid fa-exclamation"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Valor total</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"></span>
-                            <span class="total-valor"><i class="fa-solid fa-money-bill"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="tabela-container">
                 <div class="header-tabela">
                     <div class="header-text">
@@ -171,5 +132,4 @@
         </div>
     </div>
 </body>
-
 </html>

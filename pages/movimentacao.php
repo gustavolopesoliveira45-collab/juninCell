@@ -1,6 +1,31 @@
+<?php
+
+    include('../includes/menu.php');
+    include('../includes/conexao.php');
+
+    // PAGINAÇÃO
+    
+    $sqlMovimentacaoCount = "SELECT COUNT(*) as c FROM movimentacao";
+    $resultMovimentacaoCount = $conexao->query($sqlMovimentacaoCount);
+
+    $sqlMovimentacaoCount = $resultMovimentacaoCount->fetch_assoc();
+    $MovimentacaoCount = $sqlMovimentacaoCount['c'];
+
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $limit = 3;
+    $pageInterval = 2;
+    $offset = ($page - 1) * $limit;
+
+    $pageNumber = ceil ($MovimentacaoCount / $limit);
+        
+    // SELECT
+
+    $sql = "SELECT * FROM movimentacao ORDER BY idmovimentacao DESC LIMIT {$limit} OFFSET {$offset}";
+    $result = $conexao->query($sql);
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,30 +34,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
-
 <body>
-    <?php
-    include('../includes/menu.php');
-    include('../includes/conexao.php');
-
-    $sqlMovimentacaoCount = "SELECT COUNT(*) as c FROM movimentacao";
-    $resultMovimentacaoCount = $conexao->query($sqlMovimentacaoCount);
-
-    $sqlMovimentacaoCount = $resultMovimentacaoCount->fetch_assoc();
-    $MovimentacaoCount = $sqlMovimentacaoCount['c'];
-
-    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    $limit = 7;
-    $pageInterval = 2;
-    $offset = ($page - 1) * $limit;
-
-    $pageNumber = ceil ($MovimentacaoCount / $limit);
-    
-
-    $sql = "SELECT * FROM movimentacao ORDER BY idmovimentacao DESC";
-    $result = $conexao->query($sql);
-
-    ?>
     <div class="container-conteudo">
         <div class="container-movimentacao">
             <div class="container-box-movimentacao">
@@ -41,7 +43,6 @@
                         <span class="plus-icon"><i class="fa-solid fa-plus"></i></span>
                         <span>Nova Movimentação</span>
                     </div>
-                    <div class="linha"></div>
                 </div>
                 <div class="main-movimentacao">
                     <div class="form">
@@ -64,16 +65,18 @@
                                     <label for="idprodutos">Motivo</label>
                                     <input type="text" name="motivo" placeholder="Ex: Adicionando Produto">
                                 </div>
-                                <div class="input">
-                                    <label for="idprodutos">Data e Hora</label>
-                                    <input type="datetime-local" name="horario">
-                                </div>
-                                <div class="input-select">
-                                    <select name="tipo" id="tipo">
-                                        <option hidden>Selecione o Tipo</option>
-                                        <option value="entrada">Entrada</option>
-                                        <option value="saida">Saida</option>
-                                    </select>
+                                <div class="select-tipo-wrapper">
+                                    <label for="tipoMovimentacao">Tipo</label>
+                                    <div class="select-tipo-custom tipo-vazio" id="selectWrapper">
+                                        <span class="icone-tipo" id="icone-tipo">
+                                            <i class="fa-solid fa-circle-question"></i>
+                                        </span>
+                                        <select name="tipo" id="tipoMovimentacao">
+                                            <option value="" hidden selected>Selecione o tipo</option>
+                                            <option value="entrada">Entrada</option>
+                                            <option value="saida">Saída</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="container-button">
@@ -90,8 +93,8 @@
                         <span>Historico de Movimentação</span>
                     </div>
                 </div>
-                <div class="lista-movimentacao">
-                    <table class="tabela-movimentacao">
+                <div class="lista-produtos">
+                    <table class="tabela">
                         <thead>
                             <tr>
                                 <th scope="col">Horario</th>
@@ -115,26 +118,26 @@
                             ?>
                         </tbody>
                     </table>
-                    <div class="paginacao-container">
-                        <a href="?page=1" class="paginacao">
-                            <
-                        </a>
-                        <?php 
-                            $fistPage = max($page - $pageInterval, 1);
-                            $lastPage = min($pageNumber, $page + $pageInterval);
-                            for($p = $fistPage; $p <= $lastPage; $p++) {
-                                if($p == $page) {
-                                    echo "<a class='paginacao primeiro'> {$p} </a>";
-                                } else {
-                                    echo "<a href='?page={$p}' class='paginacao'>{$p}</a>";
-                                }
-                                
+                </div>
+                <div class="paginacao-container">
+                    <a href="?page=1" class="paginacao">
+                        <
+                    </a>
+                    <?php 
+                        $fistPage = max($page - $pageInterval, 1);
+                        $lastPage = min($pageNumber, $page + $pageInterval);
+                        for($p = $fistPage; $p <= $lastPage; $p++) {
+                            if($p == $page) {
+                                echo "<a class='paginacao primeiro'> {$p} </a>";
+                            } else {
+                                echo "<a href='?page={$p}' class='paginacao'>{$p}</a>";
                             }
-                        ?>
-                        <a href="?page=<?php echo $pageNumber; ?>" class="paginacao">
-                            >
-                        </a>
-                    </div>
+                            
+                        }
+                    ?>
+                    <a href="?page=<?php echo $pageNumber; ?>" class="paginacao">
+                        >
+                    </a>
                 </div>
             </div>
         </div>

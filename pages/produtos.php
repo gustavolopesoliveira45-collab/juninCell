@@ -1,7 +1,9 @@
-    <?php
+<?php
 
     include('../includes/menu.php');
     include('../includes/conexao.php');
+
+    // PAGINAÇÃO
         
     $sqlProdutosCount = "SELECT COUNT(*) as c FROM produtos";
     $resultProdutosCount = $conexao->query($sqlProdutosCount);
@@ -16,24 +18,14 @@
 
     $pageNumber = ceil ($produtoCount / $limit);
 
+    // SELECT
 
-    $sql = "SELECT * FROM produtos ORDER BY CASE WHEN status = 'ativo' THEN 1 ELSE 2 END, idprodutos DESC LIMIT {$limit} OFFSET {$offset}";
+    $sql = "SELECT * FROM produtos ORDER BY CASE WHEN status = 'atio' THEN 1 ELSE 2 END, idprodutos DESC LIMIT {$limit} OFFSET {$offset}";
     $result = $conexao->query($sql);
-        
-
-
-    $sqlStatus = "SELECT qtdProduto FROM produtos";
-        
-    $sqlSelect = "SELECT COUNT(*) AS idprodutos FROM produtos";
-    $resultado = $conexao->query($sqlSelect);
-    $dados = $resultado->fetch_assoc();
-
-    $totalProdutos = $dados['idprodutos'];
+  
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,44 +37,6 @@
 <body class="background">
     <div class="container-conteudo">
         <div class="container-produtos">
-            <div class="container-informacoes">
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Total de Produtos</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"> <?= $produtoCount; ?> </span>
-                            <span class="total-produtos"><i class="fa-solid fa-truck"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Total Baixo Estoque</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"> <?php echo $totalProdutos ?></span>
-                            <span class="total-baixo"><i class="fa-solid fa-triangle-exclamation"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Fora de Estoque</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"> <?php echo $totalProdutos ?></span>
-                            <span class="total-fora"><i class="fa-solid fa-exclamation"></i></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="box-informacoes">
-                    <div class="informacoes-name">
-                        <span class="informacoes-text">Valor total</span>
-                        <div class="informacoes-total">
-                            <span class="total-text"> <?php echo $totalProdutos ?></span>
-                            <span class="total-valor"><i class="fa-solid fa-money-bill"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="tabela-container">
                 <div class="header-tabela">
                     <div class="header-text">
